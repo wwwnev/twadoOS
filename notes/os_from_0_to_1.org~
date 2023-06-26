@@ -1,0 +1,25 @@
+* Reading notes for "Operating Systems: From 0 to 1
+By Do Hoang Tu
+https://github.com/tuhdo/os01/tree/master
+
+* Pre-reading
+http://www.allaboutcircuits.com/textbook/, chapter 1 and chapter 2
+** TODO Review basic concepts of electricity: atoms, electrons, protons, neutrons, current flow
+*** electron 
+- smallest known carrier of electric charge. ~1.6 * 10⁻¹⁹ C (coulombs)
+- coulomb = unit of electrical charge, force generated between point charges.
+*** Electric charge  
+(from wiki) physical property of matter that causes it to experience a
+force when placed in an electromagnetic field. Electric charge can be positive 
+or negative (commonly carried by protons and electrons respectively, by 
+convention). Like charges repel each other and unlike charges attract each 
+other. An object with no net charge is referred to as electrically neutral.
+*** Atom
+All bjects are composed of atoms, akin to building-blocks.
+**** Composition
+Atoms are composed of smaller compoenents known as *particles*:
+protons, neutrons and electrons.
+
+** TODO Review Ohm's law
+
+

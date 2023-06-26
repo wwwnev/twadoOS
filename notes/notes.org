@@ -1,0 +1,15 @@
+* OS DEV 101
+** 
+** Tools
+*** GCC 11.3.0
+*** binutils (cmd line ld)  2.38
+*** make 4.3
+*** grep 3.7 and sed 4.8
+*** diffutils (cmd line diff) 3.8
+*** python (cmd line python3) 3.10.6
+*** TODO assembler (choose depending on target CPU architecture 
+*** editor: emacs 27.1
+
+** Ressources
+*** https://wiki.osdev.org/
+*** Operating Systems: From 0 to 1, Do Hoang Tu

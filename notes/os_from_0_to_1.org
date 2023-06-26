@@ -1,0 +1,49 @@
+* Reading notes for "Operating Systems: From 0 to 1
+By Do Hoang Tu
+https://github.com/tuhdo/os01/tree/master
+
+* Pre-reading
+http://www.allaboutcircuits.com/textbook/, chapter 1 and chapter 2
+** TODO Basic concepts elec.: atoms, electrons, protons, neutrons, cur. flow
+*** electron 
+- smallest known carrier of electric charge. ~1.6 * 10⁻¹⁹ C (coulombs)
+- coulomb = unit of electrical charge, force generated between point charges.
+*** Electric charge  
+(from wiki) physical property of matter that causes it to experience a
+force when placed in an electromagnetic field. Electric charge can be positive 
+or negative (commonly carried by protons and electrons respectively, by 
+convention). Like charges repel each other and unlike charges attract each 
+other. An object with no net charge is referred to as electrically neutral.
+*** Atom
+All objects are composed of atoms, akin to building-blocks.
+**** Composition
+- Atoms are composed of smaller compoenents known as *particles*:
+protons (have positive electrict charge), neutrons and electrons (negative ch.). 
+(C-c C-x C-v, to display/hide img)
+[[./an_atom.png]]
+
+- Nucleus made of protons and neutrons.
+- Amount of protons changes the type of atom, the elemental identity
+- Not the case for neutrons, although as hard to add or remove.
+- Mass would change slightly and atom may become radioactive for example.
+- Electrons have more freedom to move around, can even leave the atom.
+- Electrons and protons are attracted to one another over a distance.
+- Electrons and protons are repulsed between themselves, except at very short
+distances (see strong nuclear force).
+- At equal presence in an atom, electrons and protons counteract each other
+so that the net charge within the atom is zero 
+- Opposed to being charged when nb. of electrons != protons. 
+- Neutrons have no charge and are not attracted or repelled by particles.
+
+*** Static Electricity
+- It is the result of an imbalance in electrons between objects.
+- Static because the displaced electrons tend to remain stationary after being
+moved.
+- For the most part a nuisance.
+
+*** Conductors, Insulators, and Electron flow
+
+
+** TODO Review Ohm's law
+
+
