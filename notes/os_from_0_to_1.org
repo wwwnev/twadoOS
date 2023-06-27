@@ -42,7 +42,51 @@ moved.
 - For the most part a nuisance.
 
 *** Conductors, Insulators, and Electron flow
-
+**** Electric conductivity
+Property of a material: relative mobility of electrons.
+Determined by the types of atoms in a material, and how they are linked together
+Free electrons: virt. unbond electrons, free to leave their respective atoms
+Conductors: materials with high electron mobility
+Insulators: materials with low electron mobility
+**** Electron flow / Electric current
+While the normal motion of “free” electrons in a conductor is random, with no 
+particular direction or speed, electrons can be influenced to move in a 
+coordinated fashion through a conductive material. (~dynamic electricity)
+When electrons move uniformely through a conductor, they push the ones ahead of
+them. If one stops, all of them stops. So if an electron enters one end of a
+cable, another has to exit at the other end, pretty much instantaneously.
+*** Electric circuits
+For continuous charge flow, you need a continuous (looping) path, aka a circuit
+*** Voltage and currents
+- In the context of electrical power sources, *voltage* is the amount of pot. 
+energy available (work to be done) per unit charge, to move charges through a 
+conductor. Always referenced between 2 points, since it's potential energy.
+- In simpler terms, it's the measure of "push" available to motivate the charge
+- Chemical reactions (battery), radiant energy (solar cells), and the influence
+of magnetism on conductors (generators) are a few ways to produce voltage.
+Battery: (+) tries to push charge carriers (electrons), while (-) tries to
+attract charge carriers. (a bit confusing) +/- of battery are polarities at ends
+- Electrical current: continuous and uniform flow of charge through a circuit
+- Direct current (DC): single direction flow of current
+- Alternating current (AC): direction of current switches back and forth
+- Voltage drop: kinda like voltage. If you break a circuit, there will be the
+full voltage produced by the battery manifested across the break.
+- Polarity of voltage drop: (across break ofc) depends on the order...
+Between the positive end and the negative end, it is a positive polarity. But
+between the negative end and the positive end, it is a negative polarity. So
+we just say that the polarity is (+) when connected to the + polarity of the 
+battery. It's so easy, it's hard to explain?
+- Remember, polarity is *relative between 2 points*
+*** Switches and resistances
+- Switch open = open circuit = electric charge cant flow continuously
+- Conductors have low resistance, insulators have high resistance.
+- Resistance = opposing the flow of electric current
+- There will be voltage manifested (or “dropped”) between any points in a 
+circuit with resistance between them.
+- although the amount of current (i.e., the quantity of charge moving past a 
+given point every second) is uniform in a simple circuit, the amount of 
+voltage (potential energy per unit charge) between different sets of points 
+in a single circuit may vary considerably.
 
 ** TODO Review Ohm's law
 
