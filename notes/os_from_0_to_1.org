@@ -88,6 +88,33 @@ given point every second) is uniform in a simple circuit, the amount of
 voltage (potential energy per unit charge) between different sets of points 
 in a single circuit may vary considerably.
 
+*** TODO Semi-conductors, diodes
 ** TODO Review Ohm's law
-
-
+- Current : Continuous movement of electric charge through the conductors of a circuit is called a current
+- Voltage : Force motivating charge carriers to "flow"/move
+| Quantity   | Symbol | Unit of measurement | Unit Abbreviation |
+| Current    | I      | Ampere              | A                 |
+| Voltage    | E or V | Volt                | V                 |
+| Resistance | R      | Ohm                 | Omega             |
+*** Ohm's Law Equation
+- E = I * R
+*** An analogy
+- Pressure = Flow rate * resistance
+*** Power and work
+- Power: measure of how much work can be performed in a given amount of time. 
+Work is generally defined in terms of the lifting of a weight against the pull
+of gravity. The heavier the weight and/or the higher it is lifted, the more work
+has been done. Power is a measure of how rapidly a standard amount of work is 
+done.
+- Power: 
+- P = I * E
+- Unit is the watt, "W"
+*** Joule's Law Equation
+- P = I² * R
+*** Resistors
+PCB: an assembly made of sandwiched layers of insulating phenolic fiber-board 
+and conductive copper strips, into which components may be inserted and secured
+by a low-temperature welding process called “soldering.”
+- Devices called resistors are built to provide precise amounts of resistance in
+electric circuits. Resistors are rated both in terms of their resistance (ohms)
+and their ability to dissipate heat energy (watts).
