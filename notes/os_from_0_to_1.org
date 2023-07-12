@@ -143,3 +143,18 @@ domain description; for specification, “Register Description” section descri
 all programming interfaces.
 
 * 2. From hardware to software: Layers of abstraction
+- Layers of abstraction are based.
+- Metal-Oxide-Semiconductor Field-Effect-Transistor (MOSFET)
+- CMOS = Complementary MOSFET, contains NMOS and PMOS which are complementary
+- A k-input gate uses k PMOS and k NMOS transistors
+- With the help of transistors, (etched on silicon?)
+- We can create NAND gates with those transistors. Voltages entering the 2 gates 
+  dictate whether the inputs are 1 or 0. Same idea for the output voltage.
+- Arrangements of NAND gates give us access to all other gates.
+  - NOT : Plug the same input voltage in both inputs of the NAND
+    but i dont think this is the way it's done.
+  - AND : NAND -> NOT
+  - OR :  NOT x NAND NOT y
+  - NOR : NOR -> NOT
+
+- Arrangements of various gates
