@@ -156,5 +156,53 @@ all programming interfaces.
   - AND : NAND -> NOT
   - OR :  NOT x NAND NOT y
   - NOR : NOR -> NOT
-
-- Arrangements of various gates
+** 2.3 Beyond logic gates: machine language
+- Arrangements of various gates can form various operations, such as addition(?)
+- *Machine language* is a collection of unique bit patterns that a device can 
+  identify and perform a corresponding action.
+- A *machine instruction* is a unique bit pattern that a device can identify. In a
+  computer system, a device with its language is called CPU - Central Processing
+  Unit, which controls all activities going inside a computer.
+  + For example, in the x86 architecture, the pattern 10100000 means telling a CPU
+    to add two numbers, or 000000101 to halt a computer. In the early days of 
+    computers, people had to write completely in binary.
+- For each instruction, there is a small circuit implementing it. The bit pattern
+  of an instruction is like a name to call a function.
+- Not only CPUs use machine instructions.
+- Assembly language is the symbolic representation of binary machine code, by 
+  giving bit patterns mnemonic names. 00000101 -> hlt (for the halt instr.)
+- I think 00000101 is an opcode or operation code.
+- The *decoder* is a device in the CPU that decides which circuit to use to
+  process instructions. It decides based on the opcode.
+- An *assembler* translates text instructions into binary code.
+- Instructions are stored on a *storage device*, saving 0 and 1 states.
+- The process implemented by a computer (Von Neumann?)
+  1. *Fetch* the instruction from the storage
+  2. *Decode* the instruction
+  3. *Execute* the instruction
+** 2.3.x Programming languages
+- Assembly code has a lot of repeating code, patterns of usages.
+- A *compiler* is used to translate high level programming language code into
+  assembly code.
+- The more abstractions a programming language imposes, the more difficult it is
+  for writing low-level software, such as hardware drivers or an operating 
+  system
+- That's why we use C !!!
+- Higher-level programming languages help to focus on problem domains that are 
+  not related to hardware at all.
+- Lower-level programming languages help to focus on the inner-working of a 
+  machine, thus are best suited for problem domains that are related to control 
+  hardware.
+** 2.4 Abstraction
+- Abstraction is a technique for hiding complexity that is irrelevant to the
+  problem in context.
+  - Logic gates abstract away the details of CMOS.
+  - Machine language abstracts away the details of logic gates.
+  - Assembly language abstracts away the details of machine languages.
+  - Programming language abstracts away the details of assembly languages.
+  - A lower layer has a recurring pattern. Then, this recurring pattern is taken
+    out and built a language on top of it.
+  - A higher layer strips away layer-specific (non-recurring) details to focus 
+    on the recurring details.
+  - The recurring details are given a new and simpler language than the 
+    languages of the lower layers.
