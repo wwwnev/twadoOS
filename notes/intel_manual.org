@@ -1,0 +1,160 @@
+* Chapter 1
+- The processor uses *byte addressing*. The memory is organized and accessed as a
+  sequence of bytes.
+  - Whether one or more bytes are being accessed, a byte address is used to
+    locate the byte or bytes memory. 
+  - The range of memory that can be addressed is called an *address space*.
+
+- The processor also supports *segmented addressing*. This is a form of 
+  addressing where a program may have many independent address spaces,
+  called segments. 
+  - For example, a program can keep its code (instructions) and stack in separate
+    segments. Code addresses would always refer to the code space, and stack 
+    addresses would always refer to the stack space. 
+  - The following notation is used to specify a byte address within a segment:
+    Segment-register:Byte-address (this is a "segment address")
+    - Example: 
+      DS:FF79H (address FF79H in the segment pointed by the DS register)
+      CS:EIP (identifies an instruction address in the code segment. The CS
+      register points to the code segment and the EIP register contains the
+      address of the instruction.
+* Chapter 3. Basic execution environement
+- How processor executes instructions and how it stores and manipulates data.
+- The execution environment described here includes memory (the address space), general-purpose 
+  data registers, segment registers, the flag register, and the instruction pointer register.
+** Modes of operation
+- Protected mode
+  - Native state of processor.
+  - Has the ability to execute "real-address mode" 8086 software .... (called virtual-8086 mode)
+- Real-address mode: implements the programming env. of the intel 8086 with extensions.
+  - Placed in this mode following power-up / reset
+- System management mode (SMM)
+  - This mode provides an operating system or executive with a transparent
+    mechanism for implementing platform-specific functions such as power management
+    and system security.
+  - The processor switches to a separate address space while saving the basic 
+    context of the currently running program or task
+** 3.2 Overview of the basic execution environment
+- Made up from ressources. 
+  - Program / task running on an IA-32 processor is given a set of ressources
+- Basic exec. env. is used jointly by application programs and the OS.
+*** Address space
+- Any task or program running on an IA-32 processor can address a linear address space of
+up to 4 GBytes (232 bytes) and a physical address space of up to 64 GBytes (236 bytes)
+
+*** Basic program execution registers
+- The eight general-purpose registers, the six segment registers, the EFLAGS 
+  register, and the EIP (instruction pointer) register comprise a basic execution
+  environment in which to execute a set of general-purpose instructions. 
+- These instructions perform basic integer arithmetic on byte, word, and doubleword
+  integers, handle program flow control, operate on bit and byte strings, and address memory.
+
+*** x87 FPU registers
+- The eight x87 FPU data registers, the x87 FPU control register, the status register, the
+  x87 FPU instruction pointer register, the x87 FPU operand (data) pointer register, 
+  the x87 FPU tag register, and the x87 FPU opcode register provide an execution 
+  environment for operating on single-precision, double-precision, and double
+  extended-precision floating-point values, word integers, doubleword integers,
+  quadword integers, and binary coded decimal (BCD) values
+*** MMX registers
+*** XMM registers
+*** YMM registers
+*** Bounds registers
+*** BNDCFGU and BNDSTATUS
+*** Stack 
+- To support procedure or subroutine calls and the passing of parameters between procedures or
+  subroutines, a stack and stack management resources are included in the execution environment.
+  The stack is located in memory
+
+** 3.3 Memory organization
+- The memory that the processor addresses on its bus is called physical memory.
+  - Physical memory is organized as a sequence of 8-bit bytes. Each byte is assigned
+    a unique address, called a physical address. 
+  - The physical address space ranges from zero to a maximum of 236 − 1 
+    (64 GBytes) if the processor does not support Intel 64 architecture.
+*** Flat memory model
+- Appears to program as a single, continuous address space, called linear address space.
+- Code, data, stack running contiguously from 0 to 2^32 - 1 (if not 64-bit mode).
+- Address for any byte in linear address space is called a linear address.
+
+*** Segmented memory model
+- Memory appears to a program as a group of independant address spaces: *segments*
+- Code, data and stack normally in separated segments
+- To address a byte in a segment, a program issues a *logical address* (referred as far ptr.)
+  - *Segment selector* and an *offset*.
+- Internally, all the segments that are defined for a system are mapped into the
+  processor’s linear address space.
+  - To access a memory location, the processor thus translates each logical address
+    into a linear address.
+- Reason for segments: programs and systems more reliable. Stack in a separate
+  segment = prevents it from growing into the code or data space and overwriting stuff.
+
+*** Real-address mode memory model 
+- This is the memory model for the Intel 8086 processor. 
+- It is supported to provide compatibility with existing programs written to run
+  on the Intel 8086 processor. The real-address mode uses a specific implementation
+  of segmented memory in which the linear address space for the program and the
+  operating system/executive consists of an array of segments of up to 64 KBytes in 
+  size each. The maximum size of the linear address space in real-address mode is 220 bytes.
+
+** Paging
+- Paging is a function of memory management where a computer will store and 
+  retrieve data from a device's secondary storage to the primary storage.
+- With the flat or the segmented memory model, linear address space is mapped
+  into the processor’s physical address space either directly or through paging.
+- When using direct mapping (paging disabled), each linear address has a one-to-one
+  correspondence with a physical address. Linear addresses are sent out on the 
+  processor’s address lines without translation.
+- With paging on, linear address space is divided into pages which are mapped to
+  virtual memory. The pages of virtual memory are then mapped as needed into physical memory.
+- When an operating system or executive uses paging, the paging mechanism is transparent
+  to an application program. All that the application sees is linear address space.
+
+** Modes of operation vs Memory Model
+*** Protected mode
+- Processor can use any of the memory models described before.
+- Memory model used depends on the design of the OS or executive.
+- When multitasking is implemented, individual tasks can use different mem. models
+
+*** Real-address mode
+- Processor only supports the real-address mode mem. model.
+
+*** System manadagement mode
+*** Compatibility mode
+- Should observe the same mem. model as those targeted to run in 32-bit protected mode.
+*** 64-bit mode
+
+** 32-Bit and 16-Bit Address and Operand Sizes
+- In protected mode, IA-32 processors can be configured for 32-bit or 16-bit address and operand sizes.
+
+** Basic program execution registers
+*** General purpose registers
+- The 32-bit general-purpose registers EAX, EBX, ECX, EDX, ESI, EDI, EBP, and 
+  ESP are provided for holding the following items:
+  - Operands for logical and arithmetic operations
+  - Operands for address calculations
+  - Memory pointers
+- Many instructions assign specific registers to hold operands. For example, 
+  string instructions use the contents of the ECX, ESI, and EDI registers as operands.
+- When using a segmented memory model, some instructions assume that pointers in
+  certain registers are relative to specific segments. For instance, some 
+  instructions assume that a pointer in the EBX register points to a memory
+  location in the DS segment.
+
+*** Segment registers
+- The segment registers (CS, DS, SS, ES, FS, and GS) hold 16-bit segment selectors.
+- A segment selector is a special pointer that identifies a segment in memory.
+- To access a particular segment in memory, the segment selector for that segment
+  must be present in the appropriate segment register.
+- When writing application code, programmers generally create segment selectors
+  with assembler directives and symbols. The assembler and other tools then create
+  the actual segment selector values associated with these directives and symbols. 
+- If writing system code, programmers may need to create segment selectors directly.
+- CS = code segement, SS = Stack segment, the rest are data.
+
+*** EFLAGS register
+- 32-bit, contains a group of status flags, a control flag, and a group of system flags.
+
+*** EIF register
+- Instruction register, contains the offset in the current code segment of the 
+  next instruction to be executed.

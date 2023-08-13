@@ -206,3 +206,69 @@ all programming interfaces.
     on the recurring details.
   - The recurring details are given a new and simpler language than the 
     languages of the lower layers.
+- C is general-purpose, as opposed to domain-specific languages (dsl)
+- Linux full of DSL, are placed in /etc directory, such as a web server.
+
+* 3. Computer Architecture
+- at least a CPU
+- Single-purpose computer = built at the hardware level for specific tasks
+- General-purpose computer = can be progrmmed to emulate features of single-
+  purpose computers.
+- Embedded computer = single-board or single-chip computer with limited 
+  resources
+- Microcontroller = embedded computer designed for controlling other HW devices
+  general-purpose computers
+- System-on-chip = full computer on a single chip.
+** Field Gate Programmable Array (FPGA)
+- Hardware array of reconfigurable gates.
+** Application-Specific Integrated Circuit (ASIC)
+- Chip desgned for a particular purpose. Optimized for that.
+** 3.2 Computer Architecture
+- Comp. arch. = ISA + Computer Organization + Hardware
+                high level -----------------> low level
+- ISA = basic set of commands and instructions that a micropocessor understands
+  and can carry out.
+- Includes all the instructions, registers, interrupts, memory models, 
+  addressing modes, I/O, etc. of a CPU.
+- Computer organization = functional view of the design of a computer.
+  - For example : Von Neumann architecture.
+  - Can have the same ISA but different computer organization.
+
+  - CPU: fetches instructions continuously from main memory and executes
+  - Memory: stores program code and data
+  - Bus: electrical wires for sending raw bits between the above components
+  - I/O Devices: give input to a computer (i.e. KB) and take output from
+    computer (i.e. monitor).
+  - The Von-Neumann computer operates by storing its instructions in main
+    memory, and CPU repeatedly fetches those instructions into its internal
+    storage for executing, one after another. Data are transferred through
+    a data bus between CPU, memory and I/O devices, and where to store
+    in the devices is transferred through the address bus by the CPU. This
+    architecture completely implements the *fetch – decode – execute cycle*.
+  - Today, computer has more buses that are specialized.
+  - To use these devices, a programmer needs to controls the CPU to use
+    the programming interfaces of other devices. CPU is the only way, as
+    CPU is the only direct device a programmer can use and the only de-
+    vice that understand code written by a programmer.
+  - In a CPU, many OS concepts are already implemented directly in hard-
+    ware, e.g. task switching, paging. A kernel programmer needs to know
+    how to use the hardware features, to avoid duplicating such concept
+    in software, thus wasting computer resources.
+  - Assembly language is one of the interfaces that are provided for software
+    engineers to control a CPU
+  - Registers = HW components for high-speed data access and communication w/
+    other devices.
+    - In a CPU, most registers are used as high-speed storage for temporary
+      data. 
+    - Other devices that a CPU can communicate always have a set of registers
+      for interfacing with the CPU.
+  - Port = specialized register in a HW device used for communication with other
+    devices. It doesnt store data, but rather delegate data to some other circt.
+  - These 2 interfaces = only interfaces for controlling HW with SW. Device 
+    drivers = learn the functionality of each register.
+  - Memory = storage of information. Many cells, one byte each w/ an address nb.
+    - Where SW instructions is stored and retrieved by CPU.
+  - RAM : controlled by a device called a memory controller. Most modern
+    processors have the memory controller embedded, so the CPU has a dedicated
+    memory bus connecting the processor to the RAM.
+    - On older CPU, need a MCH as an intermediary.
