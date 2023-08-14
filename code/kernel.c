@@ -70,7 +70,11 @@ static const size_t VGA_HEIGHT = 25;
 size_t terminal_row;
 size_t terminal_column;
 uint8_t terminal_color;
-uint16_t* terminal_buffer; // pointer of type uint16_t, why? Because the buffer changes size.
+uint16_t* terminal_buffer; // pointer, as this is an array
+                           // my_array[index] is syntaxic sugar for: *(my_array + index)
+                           // since this is not actually an array, it doesn't have a fixed size
+                           // Dynamic size => possible segfault
+                           // to avoid segfault: malloc(sizeof(my_type * size_of_array))
  
 void terminal_initialize(void) 
 {
