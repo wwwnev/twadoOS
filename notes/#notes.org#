@@ -1,0 +1,56 @@
+* OS DEV 101
+** Tools
+*** GCC 11.4.0
+*** G++ 11.4.0
+*** binutils (cmd line ld)  2.38
+*** make 4.3
+*** bison 3.8.2
+*** flex 2.6.4
+*** gmp
+- Installed with sudo apt install libgmp-dev
+- and lib3gmp-dev
+*** mpfr
+- Installed with sudo apt install libmpfr-dev
+*** mpc
+- Installed with sudo apt install libmpc-dev
+*** texinfo
+*** cloog (couldnt install)
+*** isl
+*** grep 3.7 and sed 4.8
+*** diffutils (cmd line diff) 3.8
+*** python (cmd line python3) 3.10.6
+*** i386-elf-as assembler (choose depending on target CPU architecture 
+*** editor: emacs 27.1
+
+*** QEMU
+- Installed with sudo apt install qemu-kvt
+*** xorisso
+- Installed with sudo apt install xorisso
+
+** Ressources
+*** https://wiki.osdev.org/
+*** Operating Systems: From 0 to 1, Do Hoang Tu
+** Target platform
+- i686-elf
+** Questions
+- Why build binutils in $HOME/src
+  - We don't build there directly, but the binaries and the build dirs are there
+
+** C cross-compiler
+- The C standard defines two different kinds of executing environments:
+ - "freestanding" and "hosted". 
+ - While the definition might be rather fuzzy for the average application
+   programmer, it is pretty clear-cut when you're doing OS development: 
+   A kernel is "freestanding", everything you do in user space is "hosted".
+   A "freestanding" environment needs to provide only a subset of the C library:
+   float.h, iso646.h, limits.h, stdalign.h, stdarg.h, stdbool.h, stddef.h, 
+   stdint.h and stdnoreturn.h (as of C11). All of these consist of typedef s and
+   #define s "only", so you can implement them without a single .c file in sight
+- Note that to have these compiler-provided includes work properly, you need to
+  *build your kernel with the -ffreestanding flag*.
+- Now I can invoke the cross compiler with the command: i686-elf-gcc
+
+** Linking
+- Linking is not the same as compiling.
+- Classic linking error: unresolved symbol.
+
