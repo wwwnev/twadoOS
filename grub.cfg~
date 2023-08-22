@@ -1,0 +1,3 @@
+menuentry "twadoOS" {
+	multiboot /build/twadoOS_kernel.bin
+}

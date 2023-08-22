@@ -1,0 +1,51 @@
+CC = ~/opt/cross/bin/i686-elf-gcc #clang
+LD = ~/opt/cross/bin/i686-elf-gcc  #toolchain/binutils/bin/i686-elf-ld -no-PIE
+CFLAGS = -std=gnu99 -nostdlib -ffreestanding -O2 -Wall -Wextra
+AC = ~/opt/cross/bin/i686-elf-as
+AFLAGS = -felf32 -i src/kernel
+LFLAGS = -T linker.ld -ffreestanding -O2 -nostdlib -lgcc
+
+BIN = build/twadoOS_kernel.bin
+ISO = isodir/boot/twadoOS_kernel.iso
+
+SSOURCES = $(wildcard src/kernel/*.s)
+CSOURCES = $(wildcard src/kernel/*.c)
+CSOURCES += $(wildcard src/libc/*.c)
+
+COBJECTS = $(CSOURCES:src/%.c=obj/%_c.o)
+SOBJECTS = $(SSOURCES:src/%.s=obj/%_s.o)
+
+$(BIN): $(COBJECTS) $(SOBJECTS)
+	@mkdir -p build
+	@echo "[LINK]        $(BIN)"
+	@$(LD) $(LFLAGS) $(COBJECTS) $(SOBJECTS) -o $(BIN)
+
+obj/%_c.o: src/%.c
+	@echo "[COMPILE-C]   $<"
+	@mkdir -p obj/kernel
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+obj/%_s.o: src/%.s
+	@echo "[COMPILE-ASM] $<"
+	@mkdir -p obj/kernel
+	@$(AC) $< -o $@
+
+clean:
+	@rm -rf build
+	@rm -rf obj
+	@rm -rf isodir
+
+bin-run-qemu:
+	@echo "Running in QEMU"
+	@qemu-system-i386 -kernel $(BIN)
+
+iso-run-qemu:
+	@echo "Running in QEMU"
+	@qemu-system-i386 -cdrom $(ISO)
+
+iso:
+	@rm -rf isodir
+	@mkdir -p isodir/boot/grub
+	@cp build/twadoOS_kernel.bin isodir/boot/twadoOS_kernel.bin
+	@cp grub.cfg isodir/boot/grub/grub.cfg
+	@grub-mkrescue -o isodir/boot/twadoOS_kernel.iso isodir

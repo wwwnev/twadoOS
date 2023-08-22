@@ -19,9 +19,17 @@
 *** grep 3.7 and sed 4.8
 *** diffutils (cmd line diff) 3.8
 *** python (cmd line python3) 3.10.6
-*** TODO assembler (choose depending on target CPU architecture 
+*** i386-elf-as assembler (choose depending on target CPU architecture 
 *** editor: emacs 27.1
 
+*** QEMU
+- Installed with sudo apt install qemu-kvt
+*** xorisso
+- Installed with sudo apt install xorisso
+
+*** mtools
+- Needed to run grub-mkrescue command? 
+- Installed with sudo apt install mtools
 ** Ressources
 *** https://wiki.osdev.org/
 *** Operating Systems: From 0 to 1, Do Hoang Tu
